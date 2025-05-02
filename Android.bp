@@ -2817,54 +2817,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libsdm-disp-vndapis",
-    owner: "oneplus",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libsdm-disp-vndapis.so",
-            ],
-            shared_libs: [
-                "libsdmutils",
-                "libqservice",
-                "libbinder",
-                "libcutils",
-                "libutils",
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libsdm-disp-vndapis.so",
-            ],
-            shared_libs: [
-                "libsdmutils",
-                "libqservice",
-                "libbinder",
-                "libcutils",
-                "libutils",
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    check_elf_files: false,
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libsdsprpc",
     owner: "oneplus",
     strip: {
@@ -10186,6 +10138,30 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "libdisplayqos",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libdisplayqos.so",
+            ],
+            shared_libs: [
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libdpmqmihal",
     owner: "oneplus",
     strip: {
@@ -11726,6 +11702,33 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "libsdedrm",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libsdedrm.so",
+            ],
+            shared_libs: [
+                "libdrm",
+                "libdrmutils",
+                "libdisplaydebug",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libsdm-color",
     owner: "oneplus",
     strip: {
@@ -11741,8 +11744,9 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libbinder",
                 "libutils",
-                "libsdmutils",
+                "libdisplaydebug",
                 "libtinyxml2_1",
+                "libsdmutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -11751,7 +11755,32 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
-    check_elf_files: false,
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libsdm-colormgr-algo",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libsdm-colormgr-algo.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libdisplaydebug",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
     prefer: true,
     soc_specific: true,
 }
@@ -11771,6 +11800,7 @@ cc_prebuilt_library_shared {
                 "libdiag",
                 "libsdmutils",
                 "libbinder",
+                "libdisplaydebug",
                 "libc++",
                 "libc",
                 "libm",
@@ -11779,7 +11809,36 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
-    check_elf_files: false,
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libsdm-disp-vndapis",
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libsdm-disp-vndapis.so",
+            ],
+            shared_libs: [
+                "libdisplaydebug",
+                "libqservice",
+                "libbinder",
+                "libcutils",
+                "libutils",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
     prefer: true,
     soc_specific: true,
 }
@@ -11796,7 +11855,10 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libsdmextension.so",
             ],
             shared_libs: [
+                "libdisplaydebug",
                 "libsdmutils",
+                "libdisplayqos",
+                "libsdm-color",
                 "libc++",
                 "libc",
                 "libm",
@@ -11805,7 +11867,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
-    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -16537,40 +16598,6 @@ cc_prebuilt_binary {
             shared_libs: [
                 "libcutils",
                 "liblowi_client",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_binary {
-    name: "mm-pp-dpps",
-    owner: "oneplus",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/mm-pp-dpps",
-            ],
-            shared_libs: [
-                "libcutils",
-                "libdisp-aba",
-                "libqdutils",
-                "libutils",
-                "liblog",
-                "libbinder",
-                "libhidlbase",
-                "libhidltransport",
-                "android.frameworks.sensorservice@1.0",
-                "libtinyxml",
                 "libc++",
                 "libc",
                 "libm",

@@ -419,6 +419,7 @@ PRODUCT_PACKAGES += \
     libconfigdb \
     libcpion \
     libdataitems \
+    libdisplayqos \
     libdpmqmihal \
     libdrmfs \
     libdrmtime \
@@ -470,7 +471,9 @@ PRODUCT_PACKAGES += \
     libril-qcril-hook-oem \
     librilqmiservices \
     librpmb \
+    libsdedrm \
     libsdm-color \
+    libsdm-colormgr-algo \
     libsdm-diag \
     libsdmextension \
     libsecureui \
