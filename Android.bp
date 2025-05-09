@@ -10451,6 +10451,8 @@ cc_prebuilt_library_shared {
                 "libsdm-color",
                 "libtinyxml2_1",
                 "libcutils",
+                "libexpat",
+                "libhardware",
                 "libutils",
                 "libbinder",
                 "libc++",
